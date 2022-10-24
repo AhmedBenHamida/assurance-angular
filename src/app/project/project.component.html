@@ -1,0 +1,73 @@
+<div class="card-tools mt-5">
+    <div class="card-body p-0">
+        <input type="submit" value="Ajouter un projet" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" >
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Target</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects; let i = index">
+                    <td>{{project.title}}</td>
+                    <td></td>
+                    <td>
+                        <a [routerLink]="['/fiches', project.id]">
+                            <button type="button" class="btn btn-outline-primary btn-sm m-1" 
+                            >Voir les fiches</button></a>
+                    </td>
+                    <td>
+
+                        
+                            
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" id="close" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                    </div>
+
+                    <app-add-project  (notif)="addProject($event)" >
+                    </app-add-project>
+
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" id="close" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+
+                <app-fiche>
+                </app-fiche>
+
+                
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="card-tools mt-5">
+    <div class="card-body p-0">
+
+
+
+        <div class="container col-12" style="margin:10px ; align-items:center ;">
+            
+           
+                <button mat-button class="btn btn-primary" data-bs-toggle="modal" 
+                data-bs-target="#exampleModal"style="margin-right:10px">Ajouter une fiche</button>
+                <button mat-button class="btn btn-primary" data-bs-toggle="modal" 
+                data-bs-target="#exampleModal3" (click)="rapport(fiches)">Rapport</button>
+
+            </div>
+        </div>
+       
+        <div class="row row-cols-1 row-cols-md-3">
+            <div *ngFor="let fiche of fiches; let i = index">
+            <div class="col mb-4">
+              <div class="card">
+               
+                <div class="card-body">
+                  <h5 class="card-title">{{fiche.reference}}</h5>
+                  <p class="card-text">{{fiche.description}}</p>
+                  <button mat-button class="btn btn-primary" data-bs-toggle="modal" 
+                data-bs-target="#exampleModal2" (click)="show(fiche)" >Afficher</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ajout d'une fiche</h5>
+                        <button type="button" id="close" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <app-add-fiche (notif)="addFiche($event)" ></app-add-fiche>           
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bd-example-modal-xl" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" id="close" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <app-one-fiche [fiche]="fiche"></app-one-fiche>           
+                </div>
+            </div>
+        </div>
+        <div class="modal fade bd-example-modal-xl" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" id="close" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <app-rapport [fiches]="fiches"></app-rapport>           
+                </div>
+            </div>
+        </div>
+        
+
+
+        

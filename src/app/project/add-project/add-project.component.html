@@ -1,0 +1,16 @@
+<form #f="ngForm" id="addProject">
+    <div class="row mb-4">
+        <div class="col">
+            <div class="form-outline">
+
+                <label class="form-label" for="form3Example1">Title</label>
+                <input type="text" id="title" name="title" class="form-control" ngModel
+                    [(ngModel)]="project.title" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <input type="submit" value="save" class="btn btn-primary" form="addProject" (click)="sendDataToParent(f.value)"
+           >
+    </div>
+</form> 

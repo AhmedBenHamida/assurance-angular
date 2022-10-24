@@ -1,0 +1,292 @@
+<div class="card-tools " style="padding:10px">
+    <div class="card-body p-0">
+        <form #f="ngForm" id="addfiche">
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="form-outline">
+
+                        <label class="form-label" for="form3Example1">Réference</label>
+                        <input type="text" id="ref" name="reference" class="form-control" ngModel
+                            [(ngModel)]="fiche.reference" />
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-outline">
+                        <label class="form-label" for="form3Example2">Titre</label>
+                        <input type="text" id="form3Example2" name="titre" ngModel [(ngModel)]="fiche.titre"
+                            class="form-control" />
+
+                    </div>
+                </div>
+            </div>
+
+            <fieldset>
+                <legend>Vecteur CVSS :</legend>
+                <table class="table table-borderless">
+                    <tr>
+                        <td>
+                            <b><span>AV</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                                title="the message" ngModel [(ngModel)]="fiche.av" name="av">
+
+                                <option value="N"
+                                    title="A vulnerability exploitable with Network access means the vulnerable component is bound to the network stack and the attacker's path is through OSI layer 3 (the network layer). Such a vulnerability is often termed 'remotely exploitable' and can be thought of as an attack being exploitable one or more network hops away (e.g. across layer 3 boundaries from routers).">
+                                    N</option>
+                                <option value="A"
+                                    title="A vulnerability exploitable with Adjacent Network access means the vulnerable component is bound to the network stack, however the attack is limited to the same shared physical (e.g. Bluetooth, IEEE 802.11), or logical (e.g. local IP subnet) network, and cannot be performed across an OSI layer 3 boundary (e.g. a router).">
+                                    A</option>
+                                <option value="L"
+                                    title="A vulnerability exploitable with Local access means that the vulnerable component is not bound to the network stack, and the attacker's path is via read/write/execute capabilities. In some cases, the attacker may be logged in locally in order to exploit the vulnerability, or may rely on User Interaction to execute a malicious file.">
+                                    L</option>
+                                <option value="P"
+                                    title="A vulnerability exploitable with Physical access requires the attacker to physically touch or manipulate the vulnerable component, such as attaching an peripheral device to a system.">
+                                    P</option>
+                            </select>
+
+                        </td>
+                        <td>
+                            <b><span>AC</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.ac" name="ac">
+
+                                <option value="L"
+                                    title="Specialized access conditions or extenuating circumstances do not exist. An attacker can expect repeatable success against the vulnerable component.">
+                                    L</option>
+                                <option value="H"
+                                    title="A successful attack depends on conditions beyond the attacker's control. That is, a successful attack cannot be accomplished at will, but requires the attacker to invest in some measurable amount of effort in preparation or execution against the vulnerable component before a successful attack can be expected.x">
+                                    H</option>
+
+                            </select>
+                        </td>
+                        <td>
+                            <b><span>PR</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.pr" name="pr">
+                                <option value="N"
+                                    title="The attacker is unauthorized prior to attack, and therefore does not require any access to settings or files to carry out an attack.">
+                                    N</option>
+                                <option value="L"
+                                    title="The attacker is authorized with (i.e. requires) privileges that provide basic user capabilities that could normally affect only settings and files owned by a user. Alternatively, an attacker with Low privileges may have the ability to cause an impact only to non-sensitive resources.">
+                                    L</option>
+                                <option value="H"
+                                    title="The attacker is authorized with (i.e. requires) privileges that provide significant (e.g. administrative) control over the vulnerable component that could affect component-wide settings and files.">
+                                    H</option>
+                            </select>
+                        </td>
+                        <td>
+                            <b><span>UI</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.ui" name="ui">
+                                <option value="N"
+                                    title="The vulnerable system can be exploited without interaction from any user.">N
+                                </option>
+                                <option value="R"
+                                    title="Successful exploitation of this vulnerability requires a user to take some action before the vulnerability can be exploited, such as convincing a user to click a link in an email.">
+                                    R</option>
+
+                            </select>
+                        </td>
+                        <td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b><span>S</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.s" name="s">
+                                <option value="U"
+                                    title="An exploited vulnerability can only affect resources managed by the same authority. In this case the vulnerable component and the impacted component are the same.">
+                                    U</option>
+                                <option value="C"
+                                    title="An exploited vulnerability can affect resources beyond the authorization privileges intended by the vulnerable component. In this case the vulnerable component and the impacted component are different.">
+                                    C</option>
+
+                            </select>
+
+                        </td>
+                        <td>
+                            <b><span>C</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.c" name="c">
+                                <option value="N"
+                                    title="There is no loss of confidentiality within the impacted component.">N
+                                </option>
+                                <option value="L"
+                                    title="There is some loss of confidentiality. Access to some restricted information is obtained, but the attacker does not have control over what information is obtained, or the amount or kind of loss is constrained. The information disclosure does not cause a direct, serious loss to the impacted component.">
+                                    L</option>
+                                <option value="H"
+                                    title="There is total loss of confidentiality, resulting in all resources within the impacted component being divulged to the attacker. Alternatively, access to only some restricted information is obtained, but the disclosed information presents a direct, serious impact.">
+                                    H</option>
+                            </select>
+
+                        </td>
+                        <td>
+                            <b><span>I</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.i" name="i">
+                                <option value="N" title="There is no loss of integrity within the impacted component.">N
+                                </option>
+                                <option value="L"
+                                    title="Modification of data is possible, but the attacker does not have control over the consequence of a modification, or the amount of modification is constrained. The data modification does not have a direct, serious impact on the impacted component.">
+                                    L</option>
+                                <option value="H"
+                                    title="There is a total loss of integrity, or a complete loss of protection. For example, the attacker is able to modify any/all files protected by the impacted component. Alternatively, only some files can be modified, but malicious modification would present a direct, serious consequence to the impacted component.">
+                                    H</option>
+                            </select>
+                        </td>
+                        <td>
+                            <b><span>A</span></b>
+                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                                [(ngModel)]="fiche.a" name="a">
+                                <option value="N"
+                                    title="There is no impact to availability within the impacted component.">N</option>
+                                <option value="L"
+                                    title="There is reduced performance or interruptions in resource availability. Even if repeated exploitation of the vulnerability is possible, the attacker does not have the ability to completely deny service to legitimate users. The resources in the impacted component are either partially available all of the time, or fully available only some of the time, but overall there is no direct, serious consequence to the impacted component.">
+                                    L</option>
+                                <option value="H"
+                                    title="There is total loss of availability, resulting in the attacker being able to fully deny access to resources in the impacted component; this loss is either sustained (while the attacker continues to deliver the attack) or persistent (the condition persists even after the attack has completed). Alternatively, the attacker has the ability to deny some availability, but the loss of availability presents a direct, serious consequence to the impacted component (e.g., the attacker cannot disrupt existing connections, but can prevent new connections; the attacker can repeatedly exploit a vulnerability that, in each instance of a successful attack, leaks a only small amount of memory, but after repeated exploitation causes a service to become completely unavailable).">
+                                    H</option>
+                            </select>
+
+                        </td>
+                        <td>
+                    </tr>
+                </table>
+
+            </fieldset>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="customFile">Elément impacté</label>
+                <input type="text" class="form-control" id="customFile" ngModel [(ngModel)]="fiche.elementImpacte"
+                    name="elementImpacte" />
+
+            </div>
+            <!--
+            <div class="form-outline mb-4">
+
+                <label class="form-label" for="customFile">Scénario de risque</label>
+                <input type="file" class="form-control" id="customFile" [(ngModel)]="fiche.senario" name="senario" />
+            </div>
+            -->
+
+
+
+            <div class="form-outline mb-4">
+
+                <label class="form-label" for="form3Example3">Description</label>
+                <textarea id="form3Example3" class="form-control" [(ngModel)]="fiche.description"
+                    name="description"></textarea>
+            </div>
+            <div class="form-outline mb-4">
+                <div class="row">
+                    <div class="col-9">
+                        <label class="form-label" for="form3Example3">Recommandation</label>
+                        <textarea id="form3Example3" class="form-control" name="recommandation"
+                            [(ngModel)]="fiche.recommandation"></textarea>
+                    </div>
+                    <div class="col">
+                        <label class="form-label" for="form3Example1">Type</label>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                            title="the message" ngModel [(ngModel)]="fiche.type" name="type">
+                            <option value="" disabled selected>Type</option>
+                            <option value="Technique">Technique</option>
+                            <option value="Organisationnelle">Organisationnelle</option>
+                            <option value="Configuration">Configuration</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col">
+                    <label class="form-label" for="form3Example3">Priorité</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                        [(ngModel)]="fiche.priorite" name="priorite">
+                        <option value="" disabled selected>Priorité</option>
+                        <option value="Immédiate">Immédiate</option>
+                        <option value="Court Termes">Court Termes</option>
+                        <option value="Moyen Termes">Moyen Termes</option>
+                        <option value="Long Termes">Long Termes</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label" for="form3Example3">Complexitée</label>
+                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" ngModel
+                        [(ngModel)]="fiche.complexite" name="complexite">
+                        <option value="" disabled selected>Complexitée</option>
+                        <option value="Complexe">Complexe</option>
+                        <option value="Moyenne">Moyenne</option>
+                        <option value="Simple">Simple</option>
+                    </select>
+                </div>
+            </div>
+            <!--   <div class="row mb-4">
+                <div class="col">
+                    <label class="form-label" for="customFile">Preuve</label>
+                    <input type="file" class="form-control" id="customFile" name="file" />
+
+                </div>
+                <div class="col">
+
+                    <label class="form-label" for="customFile">Note sur preuve</label>
+                    <input type="text" id="form3Example4" class="form-control" name="note" />
+                </div>
+            </div>
+            
+            <div class="row mb-4">
+                <div id="fieldContainer" class="col"></div>
+                <div id="fieldContainer2" class="col"></div>
+                <p>
+                    <button type="button" class="btn btn-primary" (click)="addPreuveFields()">Ajouter une preuve
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
+                        </svg>
+                     </button>                      
+                </p>
+            </div>
+            -->
+            <form #addressForm="ngForm" class="container mt-3" (ngSubmit)="logValue()" enctype="multipart/form-data">
+
+
+                <button type="button" class="btn btn-primary mb-2" (click)="addPreuve()">Ajouter une
+                    preuve</button>
+                <div class="row mb-4" *ngFor="let preuve of preuves; let i = index;">
+
+                    <div class="col-12">
+                        <h4>Preuve {{i + 1}}</h4>
+                    </div>
+
+
+                    <div class="col-5">
+                        <div class="form-group">
+                            <label>Preuve</label>
+                            <input type="file" multiple class="form-control" [(ngModel)]="preuve.file" name="file"
+                                (change)="onfile($event)" />
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label>note</label>
+                            <input type="text" class="form-control" [(ngModel)]="preuve.note" name="note" />
+                        </div>
+                    </div>
+
+                    <div class="col-1">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-danger " (click)="removePreuve(i)">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </form>
+
+
+
+            <button type="submit" class="btn btn-primary btn-block mb-4" (click)="sendDataToParent(f.value)"
+                (click)="logValue()">Send</button>
+
+
+
+        </form>
+    </div>
+</div>

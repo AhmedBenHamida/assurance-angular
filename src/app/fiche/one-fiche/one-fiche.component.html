@@ -1,0 +1,128 @@
+<div class="card-body p-0" style="margin:10px">
+    <h2>#V_{{fiche.reference}}</h2>
+    <hr>
+
+    <div>
+        <img style='margin-left: auto; display: block; width: 115px; height: 43.91px;'
+            src="https://tn.talan.com/fileadmin/Medias/logo-talan.png" alt='logo_talan' />
+    </div>
+    
+
+
+    <div class="container">
+        <h1 class="header">{{fiche.titre}}</h1>
+        <div class="flex-container1">
+            <div></div>
+            <div class="circle" [ngClass]="{
+                'vert' : fiche.cvssScore < 4 &&  0 < fiche.cvssScore,
+                'jaune' : fiche.cvssScore < 7 && 3.9 <fiche.cvssScore,
+                'orange' : fiche.cvssScore < 9 && 6.9< fiche.cvssScore,
+                'rouge' : fiche.cvssScore < 10.1 && 8.9 <fiche.cvssScore
+             }">
+                <div class="center-vertical">
+                    <h4 class='center'>CVSS</h4>
+                    <h2 style='font-weight: bold;' class='center'>{{fiche.cvssScore}}</h2>
+                </div>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td class="bleu">
+                            <h2> Risque</h2>
+                        </td>
+                        <td [ngClass]="{
+                            'tvert' : fiche.cvssScore < 4 &&  0 < fiche.cvssScore,
+                            'tjaune' : fiche.cvssScore < 7 && 3.9 <fiche.cvssScore,
+                            'torange' : fiche.cvssScore < 9 && 6.9< fiche.cvssScore,
+                            'trouge' : fiche.cvssScore < 10.1 && 8.9 <fiche.cvssScore
+                         }">
+                            <h2>{{fiche.risque}}</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bleu">
+                            <h2> Statut</h2>
+                        </td>
+                        <td style="color: #d01b24;">
+                            <h2> Non Résolue</h2>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <div class="grey-background">
+        <h3 class="bleu">Eléments Impactés:</h3>
+    </div>
+    <p>{{fiche.elementImpacte}}</p>
+    <div class="grey-background">
+        <h3 class="bleu">Description:</h3>
+    </div>
+    <p>{{fiche.description}}</p>
+    <!--
+    <div class="grey-background">
+        <h3 class="bleu">Scénario d'attaque:</h3>
+    </div>
+    <img src="{{fiche.senario}}" alt="à faire">
+    -->
+    <div class="grey-background">
+        <h3 class="bleu"> Recommendation:</h3>
+    </div>
+    <table>
+        <td style="width:70%;">
+
+            <p>
+                {{fiche.recommandation}}
+            </p>
+        </td>
+        <td style="width:30%;">
+            <div style="text-align: center; ">
+                <h3><span class="bleu">Type: </span>{{fiche.type}}</h3>
+                
+                <h3 class="bleu">Compléxité de mise en oeuvre</h3>
+
+                <h3 [ngClass]="{
+                    'tvert' : fiche.complexite ==='Simple' ,
+                    'torange': fiche.complexite ==='Moyenne' ,
+                    'trouge': fiche.complexite ==='Complexe' }">{{fiche.complexite}}</h3>
+                <h3 class="bleu">Priorité de mise en oeuvre</h3>
+                <div [ngClass]="{
+                    'tvert' : fiche.priorite === 'Long Termes',
+                    'tjaune' : fiche.priorite === 'Moyen Termes',
+                    'torange' : fiche.priorite === 'Court Termes',
+                    'trouge' : fiche.priorite === 'Immédiate'
+                 }">
+                    <h3>{{fiche.priorite}}</h3>
+                </div>
+            </div>
+        </td>
+    </table>
+    <div class="grey-background">
+        <h3 class="bleu">Vecteur CVSS:</h3>
+    </div>
+    <p>{{fiche.cvssVector}}</p>
+
+    <div class="grey-background">
+        <h3 class="bleu">Preuves:</h3>
+    </div>
+    <div *ngFor="let p of fiche.preuve">
+    <p >{{p.note}}</p> 
+    <div class="container">
+    <img style="max-width: 100%; max-height: 100%;" [src]="sanitizer.bypassSecurityTrustResourceUrl('http://localhost:8090/image/'+p.file) " alt="Generic placeholder image"
+    />
+    </div>
+</div>
+
+
+</div>

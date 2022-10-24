@@ -1,0 +1,23 @@
+
+
+
+
+
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8" id="invoice" #invoice >
+    <div class="col-md-12 text-center">
+    <button onclick="getPDF()" class="btn btn-primary" style="margin:30px ;"><img src="https://img.icons8.com/windows/32/000000/print.png"/>Télécharger</button>
+</div>
+    <div class="canvas_div_pdf" >
+    <div *ngFor="let f of fiches; let i = index">
+        {{show(f)}}
+        
+        <app-one-fiche [fiche]="fiche" crossOrigin="true" class="oneFiche"></app-one-fiche>
+        <hr>
+        </div>
+        
+
+    </div>
+    <div class="col-md-12 text-center">
+        <button onclick="getPDF()" class="btn btn-primary" style="margin:30px ;"><img src="https://img.icons8.com/windows/32/000000/print.png"/>Télécharger</button>
+    </div>
+

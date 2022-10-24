@@ -1,0 +1,126 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; } 
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.home-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .home-image {
+    top: 169px;
+    right: 102px;
+    width: 100px;
+    position: absolute;
+    object-fit: cover;
+  }
+  .home-c-v-s-s-score {
+    top: 136px;
+    color: rgb(22, 87, 173);
+    right: 107px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text { 
+    top: 128px;
+    left: 89px;
+    color: rgb(22, 87, 173);
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text01 {
+    top: 329px;
+    left: 30px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text02 {
+    top: 328px;
+    left: 245px;
+    color: #1657ad;
+    margin: auto;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text03 {
+    top: 442px;
+    left: 29px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text04 {
+    top: 492px;
+    left: 29px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text05 {
+    top: 544px;
+    left: 29px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text06 {
+    top: 596px;
+    left: 29px;
+    color: rgb(22, 87, 173);
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text07 {
+    top: 652px;
+    left: 29px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text08 {
+    top: 739px;
+    left: 88px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text09 {
+    top: 740px;
+    left: 440px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text10 {
+    top: 740px;
+    left: 845px;
+    color: #1657ad;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .home-text11 {
+    left: 29px;
+    color: #1657ad;
+    bottom: 150px;
+    position: absolute;
+    font-style: normal;
+    font-weight: 700;
+  }
+  
